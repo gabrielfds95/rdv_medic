@@ -45,6 +45,6 @@ public class Patient {
     private int age;
 
     @OneToMany(mappedBy = "patient")
-    private List<Creneau> creneaux;
+    private List<Slot> creneaux;
 
 }

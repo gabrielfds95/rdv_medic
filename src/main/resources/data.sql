@@ -3,29 +3,29 @@
     --                                    ('paul', 'paul@example.com');
 
 -- Table Médecin
-CREATE TABLE Medecin (
+CREATE TABLE Doctor (
                          id INT PRIMARY KEY AUTO_INCREMENT,
-                         nom VARCHAR(100) NOT NULL,
-                         prenom VARCHAR(100) NOT NULL,
-                         specialite VARCHAR(100) NOT NULL
+                         first_name VARCHAR(100) NOT NULL,
+                         last_name VARCHAR(100) NOT NULL,
+                         speciality VARCHAR(100) NOT NULL
 );
 
 -- Table Patient
 CREATE TABLE Patient (
                          id INT PRIMARY KEY AUTO_INCREMENT,
-                         nom VARCHAR(100) NOT NULL,
-                         prenom VARCHAR(100) NOT NULL,
+                         first_name VARCHAR(100) NOT NULL,
+                         last_name VARCHAR(100) NOT NULL,
                          age INT NOT NULL
 );
 
 -- Table Créneau
-CREATE TABLE Creneau (
+CREATE TABLE Slot (
                          id INT PRIMARY KEY AUTO_INCREMENT,
-                         date_creneau DATE NOT NULL,
-                         heure_creneau TIME NOT NULL,
-                         medecin_id INT NOT NULL,
+                         slot_date DATE NOT NULL,
+                         slot_time TIME NOT NULL,
+                         doctor_id INT NOT NULL,
                          patient_id INT NOT NULL,
-                         FOREIGN KEY (medecin_id) REFERENCES Medecin(id),
+                         FOREIGN KEY (doctor_id) REFERENCES Doctor(id),
                          FOREIGN KEY (patient_id) REFERENCES Patient(id)
 );
 

@@ -45,6 +45,6 @@ public class Medecin {
     private String specialite;
 
     @OneToMany(mappedBy = "medecin")
-    private List<Creneau> creneaux;
+    private List<Slot> creneaux;
 
 }

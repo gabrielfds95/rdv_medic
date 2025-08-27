@@ -25,8 +25,8 @@ import jakarta.persistence.ManyToOne;
 @Entity
 
 //@Table(name=”employees”) indique le nom de la table associée
-@Table(name = "Creneau")
-public class Creneau {
+@Table(name = "Slot")
+public class Slot {
 
     //L’attribut id correspond à la clé primaire de la table, et
     // est donc annoté @Id. D’autre part, comme l’id est auto-incrémenté,
@@ -37,17 +37,17 @@ public class Creneau {
 
     //nom et prenom sont annotés avec @Column pour faire le
     // lien avec le nom du champ de la table, (inutile si nom du champ de la table est identique).
-    @Column(name="nom")
-    private String nom;
+    @Column(name="first_name")
+    private String first_name;
 
-    @Column(name="prenom")
-    private String prenom;
+    @Column(name="last_name")
+    private String last_name;
 
-    private String specialite;
+    private String speciality;
 
     @ManyToOne
-    @JoinColumn(name = "medecin_id", nullable = false) // clé étrangère
-    private Medecin medecin;
+    @JoinColumn(name = "doctor_id", nullable = false) // clé étrangère
+    private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false) // clé étrangère
