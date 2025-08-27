@@ -14,6 +14,7 @@ import lombok.Data;
 @Service
 public class PatientService {
 
+    //chaque méthode a pour unique objectif d’appeler une méthode de PatientRepository
     @Autowired
     private PatientRepository patientRepository;
 

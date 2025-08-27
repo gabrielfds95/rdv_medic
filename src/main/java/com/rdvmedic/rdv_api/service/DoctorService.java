@@ -13,6 +13,8 @@ import lombok.Data;
 @Service
 public class DoctorService {
 
+    //chaque méthode a pour unique objectif d’appeler une méthode de DoctorRepository
+
     @Autowired
     private DoctorRepository doctorRepository;
 

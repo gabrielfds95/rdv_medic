@@ -13,6 +13,8 @@ import lombok.Data;
 @Service
 public class SlotService {
 
+    //chaque méthode a pour unique objectif d’appeler une méthode de SlotRepository
+
     @Autowired
     private SlotRepository slotRepository;
 
