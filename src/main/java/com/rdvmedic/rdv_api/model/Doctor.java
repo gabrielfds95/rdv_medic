@@ -23,8 +23,8 @@ import java.util.List;
 @Entity
 
 //@Table(name=”employees”) indique le nom de la table associée
-@Table(name = "Medecin")
-public class Medecin {
+@Table(name = "Doctor")
+public class Doctor {
 
     //L’attribut id correspond à la clé primaire de la table, et
     // est donc annoté @Id. D’autre part, comme l’id est auto-incrémenté,
@@ -35,16 +35,16 @@ public class Medecin {
 
     //nom et prenom sont annotés avec @Column pour faire le
     // lien avec le nom du champ de la table, (inutile si nom du champ de la table est identique).
-    @Column(name="nom")
-    private String nom;
+    @Column(name="first_name")
+    private String first_name;
 
-    @Column(name="prenom")
-    private String prenom;
+    @Column(name="last_name")
+    private String last_name;
 
-    @Column(name="specialite")
-    private String specialite;
+    @Column(name="speciality")
+    private String speciality;
 
-    @OneToMany(mappedBy = "medecin")
-    private List<Slot> creneaux;
+    @OneToMany(mappedBy = "doctor")
+    private List<Slot> slot;
 
 }

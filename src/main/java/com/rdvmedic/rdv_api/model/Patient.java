@@ -35,16 +35,16 @@ public class Patient {
 
     //nom et prenom sont annotés avec @Column pour faire le
     // lien avec le nom du champ de la table, (inutile si nom du champ de la table est identique).
-    @Column(name="nom")
-    private String nom;
+    @Column(name="first_name")
+    private String first_name;
 
-    @Column(name="prenom")
-    private String prenom;
+    @Column(name="last_name")
+    private String last_name;
 
     @Column(name="age")
     private int age;
 
     @OneToMany(mappedBy = "patient")
-    private List<Slot> creneaux;
+    private List<Slot> slot;
 
 }
