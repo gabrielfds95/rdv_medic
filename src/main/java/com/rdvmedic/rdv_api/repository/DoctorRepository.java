@@ -10,7 +10,7 @@ import com.rdvmedic.rdv_api.model.Doctor;
 // et que son rôle est de communiquer avec une source de données (en l'occurrence
 // la base de données).
 @Repository
-public interface DoctorRepository extends CrudRepository<Medecin, Integer> {
+public interface DoctorRepository extends CrudRepository<Doctor, Integer> {
 
 }
 
