@@ -1,6 +1,3 @@
---INSERT INTO users (username, email) VALUES
-  --                                      ('gabriel', 'gabriel@example.com'),
-    --                                    ('paul', 'paul@example.com');
 
 -- Table Médecin
 CREATE TABLE Doctor (
@@ -29,11 +26,6 @@ CREATE TABLE Slot (
                          FOREIGN KEY (patient_id) REFERENCES Patient(id)
 );
 
--- Table Rendezvous
---CREATE TABLE Rendezvous (
-  --                          id INT PRIMARY KEY AUTO_INCREMENT,
-    --                        statut VARCHAR(50) NOT NULL,
-      --                      motif VARCHAR(255),
-        --                    creneau_id INT NOT NULL,
-          --                  FOREIGN KEY (creneau_id) REFERENCES Creneau(id)
---);
+INSERT INTO DOCTOR (FIRST_NAME, LAST_NAME, SPECIALITY) VALUES
+                                                           ('John', 'Dupont', 'Ostheo'),
+                                                           ('Paul', 'Dupard', 'Dentiste');
