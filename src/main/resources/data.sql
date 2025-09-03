@@ -1,6 +1,6 @@
 
 -- Table Médecin
-CREATE TABLE Doctor (
+/*CREATE TABLE Doctor (
                          id INT PRIMARY KEY AUTO_INCREMENT,
                          first_name VARCHAR(100) NOT NULL,
                          last_name VARCHAR(100) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Slot (
                          FOREIGN KEY (doctor_id) REFERENCES Doctor(id),
                          FOREIGN KEY (patient_id) REFERENCES Patient(id)
 );
-
-INSERT INTO DOCTOR (FIRST_NAME, LAST_NAME, SPECIALITY) VALUES
+*/
+INSERT INTO doctor (FIRST_NAME, LAST_NAME, SPECIALITY) VALUES
                                                            ('John', 'Dupont', 'Ostheo'),
                                                            ('Paul', 'Dupard', 'Dentiste');
