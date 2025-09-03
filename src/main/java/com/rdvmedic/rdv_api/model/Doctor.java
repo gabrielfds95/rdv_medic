@@ -21,7 +21,7 @@ import java.util.List;
 // correspond à une table de la base de données.
 @Entity
 
-//@Table(name=”employees”) indique le nom de la table associée
+//@Table(name=”Doctor”) indique le nom de la table associée
 @Table(name = "Doctor")
 public class Doctor {
 
