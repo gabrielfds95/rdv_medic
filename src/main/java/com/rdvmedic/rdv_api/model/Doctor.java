@@ -1,21 +1,16 @@
 package com.rdvmedic.rdv_api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 //@Data est une annotation Lombok. Nul besoin d’ajouter les getters et les setters.
 // La librairie Lombok s’en charge pour nous. Très utile pour alléger le code.
-import jakarta.persistence.OneToMany;
-import lombok.Data;
+//import lombok.Data;
 
 import java.util.List;
 
 
-@Data
+//@Data
 
 //@Entity est une annotation qui indique que la classe
 // correspond à une table de la base de données.
@@ -36,13 +31,39 @@ public class Doctor {
     // lien avec le nom du champ de la table, (inutile si nom du champ de la table est identique).
     //@Column(name="first_name")
     //inutile si auto create avec hibernate car il crée a partir du model + il converti automatique camelCase en snake_case
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "speciality")
     private String speciality;
 
     @OneToMany(mappedBy = "doctor")
     private List<Slot> slot;
 
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+        }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 }

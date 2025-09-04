@@ -1,5 +1,6 @@
 package com.rdvmedic.rdv_api.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,9 @@ public class DoctorService {
         return doctorRepository.findById(id);
     }
 
-    public Iterable<Doctor> getDoctors() {
-        return doctorRepository.findAll();
+    public List<Doctor> getDoctors() {
+        List<Doctor> doctors = doctorRepository.findAll();
+        return doctors;
     }
 
     public void deleteDoctor(final int id) {

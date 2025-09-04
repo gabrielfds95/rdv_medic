@@ -1,11 +1,13 @@
 package com.rdvmedic.rdv_api.controller;
 
+import com.rdvmedic.rdv_api.model.Slot;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.rdvmedic.rdv_api.model.Doctor;
 import com.rdvmedic.rdv_api.service.DoctorService;
+
+import java.util.List;
 
 
 //permet d’indiquer à Spring que cette classe est un bean
@@ -27,8 +29,16 @@ public class DoctorController {
     // méthode. Et ce code est tout simple : il s’agit d’appeler la méthode getDoctors()
     // du service, ce dernier appellera la méthode findAll() du repository, et nous obtiendrons
     // ainsi tous les médecins enregistrés en base de données
-    public Iterable<Doctor> getDoctors() {
+    public List<Doctor> getDoctors() {
         return doctorService.getDoctors();
     }
 
+    //Cette annotation indique que ce code sera exécuté quand tu fais une requête POST
+    @PostMapping("/api/doctors/{id}/slots")
+    //PathVariable int id Récupère la valeur de {id} dans l’URL.
+    //@RequestBody Slot slot
+    //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
+    public Slot addSlot(@PathVariable int id, @RequestBody Slot slot) {
+        return slotService.addSlot(id, slot);
+    }
 }

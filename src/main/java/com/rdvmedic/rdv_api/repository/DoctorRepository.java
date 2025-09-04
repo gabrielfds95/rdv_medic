@@ -1,5 +1,6 @@
 package com.rdvmedic.rdv_api.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,7 @@ import com.rdvmedic.rdv_api.model.Doctor;
 // et que son rôle est de communiquer avec une source de données (en l'occurrence
 // la base de données).
 @Repository
-public interface DoctorRepository extends CrudRepository<Doctor, Integer> {
+public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 
 }
 

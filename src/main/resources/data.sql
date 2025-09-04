@@ -26,6 +26,6 @@ CREATE TABLE Slot (
                          FOREIGN KEY (patient_id) REFERENCES Patient(id)
 );
 */
-INSERT INTO doctor (FIRST_NAME, LAST_NAME, SPECIALITY) VALUES
+INSERT INTO doctor (first_name, last_name, speciality) VALUES
                                                            ('John', 'Dupont', 'Ostheo'),
                                                            ('Paul', 'Dupard', 'Dentiste');
