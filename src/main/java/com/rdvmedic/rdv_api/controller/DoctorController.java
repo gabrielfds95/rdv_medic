@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.rdvmedic.rdv_api.model.Doctor;
 import com.rdvmedic.rdv_api.service.DoctorService;
+import com.rdvmedic.rdv_api.service.SlotService;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public class DoctorController {
 
     @Autowired
     private DoctorService doctorService;
+
+    @Autowired
+    private SlotService slotService;
 
     /**
      * Read - Get all employees
@@ -34,9 +38,9 @@ public class DoctorController {
     }
 
     //Cette annotation indique que ce code sera exécuté quand tu fais une requête POST
-    @PostMapping("/api/doctors/{id}/slots")
+    @PostMapping("/doctors/{id}/slots")
     //PathVariable int id Récupère la valeur de {id} dans l’URL.
-    //@RequestBody Slot slot
+    //@RequestBody Slot slot;
     //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
     public Slot addSlot(@PathVariable int id, @RequestBody Slot slot) {
         return slotService.addSlot(id, slot);

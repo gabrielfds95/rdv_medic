@@ -29,3 +29,9 @@ CREATE TABLE Slot (
 INSERT INTO doctor (first_name, last_name, speciality) VALUES
                                                            ('John', 'Dupont', 'Ostheo'),
                                                            ('Paul', 'Dupard', 'Dentiste');
+INSERT INTO patient (first_name, last_name, age) VALUES
+                                                     ('Marc', 'Galar', 34),
+                                                     ('Jean', 'Dude', 21);
+
+INSERT INTO slot (slot_date, slot_time, doctor_id, patient_id) VALUES
+                                            ('2025-09-04','14:30:00',2, 1);

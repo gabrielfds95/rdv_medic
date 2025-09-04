@@ -11,7 +11,7 @@ import java.time.LocalTime;
 
 //@Data est une annotation Lombok. Nul besoin d’ajouter les getters et les setters.
 // La librairie Lombok s’en charge pour nous. Très utile pour alléger le code.
-import lombok.Data;
+//import lombok.Data;
 
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,7 +19,7 @@ import jakarta.persistence.ManyToOne;
 
 
 
-@Data
+//@Data
 
 //@Entity est une annotation qui indique que la classe
 // correspond à une table de la base de données.
@@ -47,5 +47,47 @@ public class Slot {
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false) // clé étrangère
     private Patient patient;
+
+    // Getter et setter pour doctor
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getSlotDate() {
+        return slotDate;
+    }
+
+    public void setSlotDate(LocalDate slotDate) {
+        this.slotDate = slotDate;
+    }
+
+    public LocalTime getSlotTime() {
+        return slotTime;
+    }
+
+    public void setSlotTime(LocalTime slotTime) {
+        this.slotTime = slotTime;
+    }
 
 }
