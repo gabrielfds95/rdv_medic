@@ -1,5 +1,6 @@
 package com.rdvmedic.rdv_api.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.rdvmedic.rdv_api.model.Doctor;
@@ -36,9 +37,9 @@ public class SlotService {
         slotRepository.deleteById(id);
     }
 
-    public Slot addSlot(int id, Slot slot) {
+    public Slot addSlot(int doctorId, Slot slot) {
         // On récupère le médecin en base avec son id
-        Doctor doctor = doctorRepository.findById(id)
+        Doctor doctor = doctorRepository.findById(doctorId)
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
         // On rattache le médecin au créneau
@@ -47,4 +48,13 @@ public class SlotService {
         // On enregistre le créneau en base
         return slotRepository.save(slot);
     }
+
+    //public List<Slot> : La méthode retourne une liste de créneaux.
+    //doctorId : C’est l’ID du médecin reçu depuis le controller.
+    //slotRepository.findByDoctorId(doctorId) : Utilise le repository
+    // pour interroger la base de données et récupérer tous les créneaux associés à ce médecin.
+    public List<Slot> getSlotsByDoctor(int doctorId) {
+        return slotRepository.findByDoctorId(doctorId);
+    }
+
 }
