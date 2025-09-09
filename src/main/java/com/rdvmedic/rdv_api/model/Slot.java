@@ -45,7 +45,7 @@ public class Slot {
     private Doctor doctor;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false) // clé étrangère
+    @JoinColumn(name = "patient_id") // clé étrangère
     private Patient patient;
 
     // Getter et setter pour doctor

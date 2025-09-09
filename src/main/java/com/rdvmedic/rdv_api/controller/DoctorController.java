@@ -30,6 +30,7 @@ public class DoctorController {
      * Read - Get all employees
      * @return - An Iterable object of Employee full filled
      */
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/doctors")
     //les requêtes HTTP de type GET à l’URL /doctors exécuteront le code de cette
     // méthode. Et ce code est tout simple : il s’agit d’appeler la méthode getDoctors()
@@ -40,7 +41,7 @@ public class DoctorController {
     }
 
     //Cette annotation indique que ce code sera exécuté quand tu fais une requête POST
-    @PostMapping("/doctors/{id}/slots")
+    @PostMapping("/doctors/{doctorId}/slots")
     //PathVariable int id Récupère la valeur de {id} dans l’URL.
     //@RequestBody Slot slot;
     //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
