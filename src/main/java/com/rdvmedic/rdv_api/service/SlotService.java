@@ -42,6 +42,16 @@ public class SlotService {
         Doctor doctor = doctorRepository.findById(doctorId)
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
+
+        /* Vérifie si un créneau existe déjà pour ce médecin à cette date et heure
+        Optional<Slot> existingSlot = slotRepository.findSlotByDoctorAndDateTime(
+                doctorId, slot.getSlotDate(),slot.getSlotTime());
+
+        if (existingSlot.isPresent()) {
+            // Si le créneau existe déjà, on lève une exception ou on peut retourner le créneau existant
+            throw new RuntimeException("Slot already exists for this doctor at this date and time");
+        }*/
+
         // On rattache le médecin au créneau
         slot.setDoctor(doctor);
 

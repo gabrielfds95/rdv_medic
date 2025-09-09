@@ -40,7 +40,7 @@ public class DoctorController {
     }
 
     //Cette annotation indique que ce code sera exécuté quand tu fais une requête POST
-    @PostMapping("/doctors/{id}/slots")
+    @PostMapping("/doctors/{doctorId}/slots")
     //PathVariable int id Récupère la valeur de {id} dans l’URL.
     //@RequestBody Slot slot;
     //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
