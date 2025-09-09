@@ -28,7 +28,10 @@ CREATE TABLE Slot (
 */
 INSERT INTO doctor (first_name, last_name, speciality) VALUES
                                                            ('John', 'Dupont', 'Ostheo'),
-                                                           ('Paul', 'Dupard', 'Dentiste');
+                                                           ('Paul', 'Dupard', 'Dentiste'),
+                                                           ('Jules', 'Pires', 'Generaliste'),
+                                                           ('Manuel', 'Meche', 'Generaliste'),
+                                                           ('Yves', 'Laure', 'Pediatre');
 INSERT INTO patient (first_name, last_name, age) VALUES
                                                      ('Marc', 'Galar', 34),
                                                      ('Jean', 'Dude', 21);
