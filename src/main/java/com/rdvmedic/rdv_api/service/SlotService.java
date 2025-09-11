@@ -67,7 +67,7 @@ public class SlotService {
         return slotRepository.findByDoctorId(idDoctor);
     }
 
-    public List<Slot> findByDoctorIdAndPatientId(int idDoctor, int idPatient) {
+    public List<Slot> getSlotsByDoctorIdAndPatientId(int idDoctor, int idPatient) {
         return slotRepository.findByDoctorIdAndPatientId(idDoctor,idPatient);
     }
 

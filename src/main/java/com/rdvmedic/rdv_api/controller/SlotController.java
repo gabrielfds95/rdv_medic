@@ -1,12 +1,16 @@
 package com.rdvmedic.rdv_api.controller;
 
+import com.rdvmedic.rdv_api.repository.SlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rdvmedic.rdv_api.model.Slot;
 import com.rdvmedic.rdv_api.service.SlotService;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,6 +21,9 @@ import java.util.List;
 
 public class SlotController {
 
+
+    @Autowired
+    private SlotRepository slotRepository;
     @Autowired
     private SlotService slotService;
 
@@ -33,13 +40,24 @@ public class SlotController {
         return slotService.getSlots();
     }
 
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/slots/{idDoctor}/{idPatient}")
     //List<Slot> : La méthode retourne une liste de créneaux (Slot) au format JSON
     // PathVariable int id Récupère la valeur de {id} dans l’URL.
     // slotService.getSlotsByDoctor(idDoctor) : Appelle la méthode du service
     // qui va chercher les créneaux liés à ce médecin.
-    public List<Slot> getBookedSlot(@PathVariable int idDoctor,@PathVariable int idPatient) {
-        return slotService.findByDoctorIdAndPatientId(idDoctor,idPatient);
-    }
+    public List<Slot> getSlotsByDoctorIdAndPatientId(@PathVariable int idDoctor, @PathVariable int idPatient) {
+        List<Slot> slots = slotService.getSlotsByDoctorIdAndPatientId(idDoctor, idPatient);
 
+        //msg d'erreur si un patient n'est pas attribué au créneau
+        if (slots.isEmpty()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Aucun créneau trouvé pour ce médecin et ce patient."
+            );
+        }
+
+        return slots;
+    }
 }
