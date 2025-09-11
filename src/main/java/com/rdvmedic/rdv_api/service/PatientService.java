@@ -1,7 +1,9 @@
 package com.rdvmedic.rdv_api.service;
 
+import java.util.List;
 import java.util.Optional;
 
+import com.rdvmedic.rdv_api.model.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rdvmedic.rdv_api.model.Patient;
@@ -18,12 +20,12 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
+    public List<Patient> getPatients() {
+        List<Patient> patients = patientRepository.findAll();
+        return patients;
+    }
     public Optional<Patient> getPatient(final int id) {
         return patientRepository.findById(id);
-    }
-
-    public Iterable<Patient> getPatients() {
-        return patientRepository.findAll();
     }
 
     public void deletePatient(final int id) {

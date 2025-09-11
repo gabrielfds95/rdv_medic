@@ -36,5 +36,5 @@ INSERT INTO patient (first_name, last_name, age) VALUES
                                                      ('Marc', 'Galar', 34),
                                                      ('Jean', 'Dude', 21);
 
-INSERT INTO slot (slot_date, slot_time, doctor_id, patient_id) VALUES
-                                            ('2025-09-04','14:30:00',2, 1);
+INSERT INTO slot (slot_date, slot_time,end_time,slot_reason, doctor_id, patient_id) VALUES
+                                            ('2025-09-04','14:30:00','15:00:00','Carries' ,2, 1);

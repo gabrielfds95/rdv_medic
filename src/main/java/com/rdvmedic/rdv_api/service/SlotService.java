@@ -63,8 +63,13 @@ public class SlotService {
     //doctorId : C’est l’ID du médecin reçu depuis le controller.
     //slotRepository.findByDoctorId(doctorId) : Utilise le repository
     // pour interroger la base de données et récupérer tous les créneaux associés à ce médecin.
-    public List<Slot> getSlotsByDoctor(int doctorId) {
-        return slotRepository.findByDoctorId(doctorId);
+    public List<Slot> getSlotsByDoctor(int idDoctor) {
+        return slotRepository.findByDoctorId(idDoctor);
     }
+
+    public List<Slot> findByDoctorIdAndPatientId(int idDoctor, int idPatient) {
+        return slotRepository.findByDoctorIdAndPatientId(idDoctor,idPatient);
+    }
+
 
 }

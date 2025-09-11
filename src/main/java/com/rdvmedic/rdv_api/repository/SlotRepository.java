@@ -22,7 +22,7 @@ import com.rdvmedic.rdv_api.model.Slot;
 // Slot pour générer automatiquement une requête SQL
 public interface SlotRepository extends JpaRepository<Slot, Integer> {
     List<Slot> findByDoctorId(int doctorId);
-
+    List<Slot> findByDoctorIdAndPatientId(int doctorId, int patientId);
 
 // Cette méthode permet de vérifier si un créneau existe déjà pour un médecin à une date donnée
 //Optional : conteneur qui peut contenir une valeur non nulle ou être vide

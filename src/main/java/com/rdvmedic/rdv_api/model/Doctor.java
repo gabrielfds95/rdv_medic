@@ -62,10 +62,7 @@ public class Doctor {
         return lastName;
         }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-
-    }
+    public void setLastName(String lastName) {this.lastName = lastName;}
 
     public String getSpeciality() {
         return speciality;

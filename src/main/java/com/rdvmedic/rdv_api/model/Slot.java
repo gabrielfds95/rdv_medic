@@ -14,6 +14,7 @@ import java.time.LocalTime;
 //import lombok.Data;
 
 import jakarta.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.ManyToOne;
 
 
@@ -40,6 +41,11 @@ public class Slot {
 
     private LocalTime slotTime;
 
+    private LocalTime endTime;
+
+    private String slotReason;
+
+
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false) // clé étrangère
     private Doctor doctor;
@@ -52,42 +58,50 @@ public class Slot {
     public Doctor getDoctor() {
         return doctor;
     }
-
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
 
 
+//patient
     public Patient getPatient() {
         return patient;
     }
-
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
 
+    //Id
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
+
+    //SlotDate
     public LocalDate getSlotDate() {
         return slotDate;
     }
-
     public void setSlotDate(LocalDate slotDate) {
         this.slotDate = slotDate;
     }
 
+
+    //SlotTime
     public LocalTime getSlotTime() {
         return slotTime;
     }
-
     public void setSlotTime(LocalTime slotTime) {
         this.slotTime = slotTime;
     }
 
+   //endTime
+    public LocalTime getEndTime() {return endTime;}
+    public void setEndTime (LocalTime endTime){this.endTime = endTime;}
+
+    //endTime
+    public String getSlotReason() {return slotReason;}
+    public void setSlotReason (String slotReason){this.slotReason = slotReason;}
 }

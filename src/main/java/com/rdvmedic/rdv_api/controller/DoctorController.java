@@ -45,8 +45,8 @@ public class DoctorController {
     //PathVariable int id Récupère la valeur de {id} dans l’URL.
     //@RequestBody Slot slot;
     //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
-    public ResponseEntity<Slot> addSlot(@PathVariable int doctorId, @RequestBody Slot slot) {
-        Slot createdSlot = slotService.addSlot(doctorId, slot);
+    public ResponseEntity<Slot> addSlot(@PathVariable int idDoctor, @RequestBody Slot slot) {
+        Slot createdSlot = slotService.addSlot(idDoctor, slot);
         return  ResponseEntity.status(HttpStatus.CREATED).body(createdSlot);
     }
 

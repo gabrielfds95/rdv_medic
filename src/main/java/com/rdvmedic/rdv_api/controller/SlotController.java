@@ -2,10 +2,13 @@ package com.rdvmedic.rdv_api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rdvmedic.rdv_api.model.Slot;
 import com.rdvmedic.rdv_api.service.SlotService;
+
+import java.util.List;
 
 //permet d’indiquer à Spring que cette classe est un bean
 //et indique à Spring d’insérer le retour de la méthode
@@ -28,6 +31,15 @@ public class SlotController {
     // ainsi tous les crénaux enregistrés en base de données
     public Iterable<Slot> getSlots() {
         return slotService.getSlots();
+    }
+
+    @GetMapping("/slots/{idDoctor}/{idPatient}")
+    //List<Slot> : La méthode retourne une liste de créneaux (Slot) au format JSON
+    // PathVariable int id Récupère la valeur de {id} dans l’URL.
+    // slotService.getSlotsByDoctor(idDoctor) : Appelle la méthode du service
+    // qui va chercher les créneaux liés à ce médecin.
+    public List<Slot> getBookedSlot(@PathVariable int idDoctor,@PathVariable int idPatient) {
+        return slotService.findByDoctorIdAndPatientId(idDoctor,idPatient);
     }
 
 }
