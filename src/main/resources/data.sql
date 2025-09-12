@@ -37,6 +37,7 @@ INSERT INTO patient (first_name, last_name, age) VALUES
                                                      ('Jean', 'Dude', 21);
 
 INSERT INTO slot (slot_date, slot_time,end_time,slot_reason, doctor_id, patient_id) VALUES
-                                            ('2025-10-10','14:30:00','15:00:00','Carries' ,2, 1),
-                                            ('2025-09-10','14:30:00','15:00:00','Dents sale' ,2, 1),
-                                            ('2025-09-10','16:30:00','17:00:00','Remplacement appareil' ,2, 1);
+                                            ('2025-10-10','14:30','15:00','Carries' ,2, 1),
+                                            ('2025-10-10','14:30','15:00','Rhume' ,3, 2),
+                                            ('2025-09-10','14:30','15:00','Dents sale' ,2, 1),
+                                            ('2025-09-10','16:30','17:00','Remplacement appareil' ,2, 1);

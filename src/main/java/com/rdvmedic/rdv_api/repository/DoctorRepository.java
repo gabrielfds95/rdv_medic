@@ -1,10 +1,14 @@
 package com.rdvmedic.rdv_api.repository;
 
+import com.rdvmedic.rdv_api.model.Slot;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.rdvmedic.rdv_api.model.Doctor;
+
+import java.util.List;
+import java.util.Optional;
 
 
 //@Repository est une annotation Spring pour indiquer que la classe est un bean,
@@ -12,6 +16,7 @@ import com.rdvmedic.rdv_api.model.Doctor;
 // la base de données).
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
+    Optional<Doctor> findDoctorById(int doctorId);
 
 }
 

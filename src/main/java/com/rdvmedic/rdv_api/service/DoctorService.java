@@ -28,6 +28,11 @@ public class DoctorService {
         return doctors;
     }
 
+    public Optional<Doctor> getDoctorById(int idDoctor) {
+        Optional<Doctor> doctor = doctorRepository.findDoctorById(idDoctor);
+        return doctor;
+    }
+
     public void deleteDoctor(final int id) {
         doctorRepository.deleteById(id);
     }

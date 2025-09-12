@@ -11,6 +11,7 @@ import com.rdvmedic.rdv_api.service.DoctorService;
 import com.rdvmedic.rdv_api.service.SlotService;
 
 import java.util.List;
+import java.util.Optional;
 
 
 //permet d’indiquer à Spring que cette classe est un bean
@@ -50,6 +51,7 @@ public class DoctorController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(createdSlot);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/doctors/{idDoctor}/slots")
     //List<Slot> : La méthode retourne une liste de créneaux (Slot) au format JSON
     // PathVariable int id Récupère la valeur de {id} dans l’URL.
@@ -57,6 +59,13 @@ public class DoctorController {
     // qui va chercher les créneaux liés à ce médecin.
     public List<Slot> getSlotsByDoctor(@PathVariable int idDoctor) {
         return slotService.getSlotsByDoctor(idDoctor);
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/doctor/{idDoctor}")
+    public Optional<Doctor> getDoctorById(@PathVariable int idDoctor) {
+        return doctorService.getDoctorById(idDoctor);
     }
 
 
