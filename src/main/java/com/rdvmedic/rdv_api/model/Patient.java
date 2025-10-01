@@ -38,6 +38,8 @@ public class Patient {
 
     private int age;
 
+    private String email;
+
     @OneToMany(mappedBy = "patient")
     private List<Slot> slot;
 
@@ -72,4 +74,11 @@ public class Patient {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email= email;
+    }
+
 }

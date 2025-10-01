@@ -24,6 +24,11 @@ public class PatientService {
         List<Patient> patients = patientRepository.findAll();
         return patients;
     }
+
+    public Patient newPatient(Patient patient) {
+        return patientRepository.save(patient);
+    }
+
     public Optional<Patient> getPatient(final int id) {
         return patientRepository.findById(id);
     }

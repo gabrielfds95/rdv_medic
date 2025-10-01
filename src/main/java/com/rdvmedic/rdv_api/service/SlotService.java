@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import com.rdvmedic.rdv_api.model.Doctor;
+import com.rdvmedic.rdv_api.model.Patient;
 import com.rdvmedic.rdv_api.repository.DoctorRepository;
+import com.rdvmedic.rdv_api.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rdvmedic.rdv_api.model.Slot;
@@ -24,6 +26,9 @@ public class SlotService {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    @Autowired
+    private PatientRepository patientRepository;
+
 
     public Optional<Slot> getSlot(final int id) {
         return slotRepository.findById(id);
@@ -37,10 +42,14 @@ public class SlotService {
         slotRepository.deleteById(id);
     }
 
-    public Slot addSlot(int doctorId, Slot slot) {
+    public Slot addSlot(int doctorId,int patientId, Slot slot) {
         // On récupère le médecin en base avec son id
         Doctor doctor = doctorRepository.findById(doctorId)
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
+
+        // On récupère le médecin en base avec son id
+        Patient patient = patientRepository.findById(patientId)
+                .orElseThrow(() -> new RuntimeException("Patient not found"));
 
 
         /* Vérifie si un créneau existe déjà pour ce médecin à cette date et heure
@@ -54,6 +63,7 @@ public class SlotService {
 
         // On rattache le médecin au créneau
         slot.setDoctor(doctor);
+        slot.setPatient(patient);
 
         // On enregistre le créneau en base
         return slotRepository.save(slot);

@@ -3,10 +3,8 @@ package com.rdvmedic.rdv_api.controller;
 import com.rdvmedic.rdv_api.repository.SlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.rdvmedic.rdv_api.model.Slot;
 import com.rdvmedic.rdv_api.service.SlotService;
@@ -59,5 +57,13 @@ public class SlotController {
         }
 
         return slots;
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/slot/{idDoctor}/{idPatient}")
+    public ResponseEntity<Slot> addSlot(@PathVariable int idDoctor,@PathVariable int idPatient, @RequestBody Slot slot) {
+        Slot createdSlot = slotService.addSlot(idDoctor,idPatient, slot);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(createdSlot);
     }
 }

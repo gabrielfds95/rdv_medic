@@ -41,15 +41,6 @@ public class DoctorController {
         return doctorService.getDoctors();
     }
 
-    //Cette annotation indique que ce code sera exécuté quand tu fais une requête POST
-    @PostMapping("/doctors/{doctorId}/slots")
-    //PathVariable int id Récupère la valeur de {id} dans l’URL.
-    //@RequestBody Slot slot;
-    //Récupère le contenu du body JSON de la requête et le transforme automatiquement en objet Slot.
-    public ResponseEntity<Slot> addSlot(@PathVariable int idDoctor, @RequestBody Slot slot) {
-        Slot createdSlot = slotService.addSlot(idDoctor, slot);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(createdSlot);
-    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/doctors/{idDoctor}/slots")

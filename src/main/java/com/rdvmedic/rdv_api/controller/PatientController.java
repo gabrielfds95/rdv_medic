@@ -1,9 +1,11 @@
 package com.rdvmedic.rdv_api.controller;
 
 import com.rdvmedic.rdv_api.model.Doctor;
+import com.rdvmedic.rdv_api.model.Slot;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.rdvmedic.rdv_api.model.Patient;
 import com.rdvmedic.rdv_api.service.PatientService;
@@ -33,4 +35,10 @@ public class PatientController {
         return patientService.getPatients();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/patient")
+    public ResponseEntity<Patient> newPatient(@RequestBody Patient patient) {
+        Patient addPatient = patientService.newPatient(patient);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(addPatient);
+    }
 }
