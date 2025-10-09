@@ -1,6 +1,8 @@
 package com.rdvmedic.rdv_api.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 //@Data est une annotation Lombok. Nul besoin d’ajouter les getters et les setters.
@@ -18,13 +20,15 @@ import java.util.List;
 
 //@Table(name=”Doctor”) indique le nom de la table associée
 @Table(name = "Doctor")
-public class Doctor {
+public class Doctor extends User {
 
     //L’attribut id correspond à la clé primaire de la table, et
     // est donc annoté @Id. D’autre part, comme l’id est auto-incrémenté,
     // j’ai ajouté l’annotation @GeneratedValue(strategy = GenerationType.IDENTITY).
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private int id;
 
     //nom et prenom sont annotés avec @Column pour faire le
@@ -43,32 +47,32 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     private List<Slot> slot;
 
-    public int getId() {
-        return id;
-    }
+    //public int getId() {
+      //  return id;
+    //}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    //public void setId(int id) {
+      //  this.id = id;
+    //}
 
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+   // public String getFirstName() {
+      //  return firstName;
+   // }
+    //public void setFirstName(String firstName) {
+      //  this.firstName = firstName;
+    //}
 
-    public String getLastName() {
-        return lastName;
-        }
+    //public String getLastName() {
+      //  return lastName;
+        //}
 
-    public void setLastName(String lastName) {this.lastName = lastName;}
+    //public void setLastName(String lastName) {this.lastName = lastName;}
 
-    public String getSpeciality() {
-        return speciality;
-    }
+    //public String getSpeciality() {
+      //  return speciality;
+    //}
 
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
-    }
+   // public void setSpeciality(String speciality) {
+     //   this.speciality = speciality;
+    //}
 }

@@ -23,7 +23,7 @@ import java.util.List;
 
 //@Table(name=”employees”) indique le nom de la table associée
 @Table(name = "Patient")
-public class Patient {
+public class Patient extends User {
 
     //L’attribut id correspond à la clé primaire de la table, et
     // est donc annoté @Id. D’autre part, comme l’id est auto-incrémenté,

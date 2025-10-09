@@ -41,3 +41,6 @@ INSERT INTO slot (slot_date, slot_time,end_time,slot_reason, doctor_id, patient_
                                             ('2025-10-03','14:30','15:00','Rhume' ,3, 2),
                                             ('2025-10-02','14:30','15:00','Nettoyage' ,2, 1),
                                             ('2025-10-01','16:30','17:00','Remplacement appareil' ,2, 1);
+
+INSERT INTO user (username, password, role) VALUES ('dbuser', '$2y$10$.qkbukzzX21D.bqbI.B2R.tvWP90o/Y16QRWVLodw51BHft7ZWbc.', 'USER'),
+('dbadmin', '$2y$10$kp1V7UYDEWn17WSK16UcmOnFd1mPFVF6UkLrOOCGtf24HOYt8p1iC', 'ADMIN');
